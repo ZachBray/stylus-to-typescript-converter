@@ -1,6 +1,6 @@
 {
   "name": "stylus-to-typescript-converter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Converts basic Stylus variables and groups to TypeScript for use as inline styles.",
   "bin": {
     "stsc": "cli.js"
