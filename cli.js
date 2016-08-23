@@ -24,6 +24,10 @@ var optionList = [{
   alias: 'v',
   type: Boolean,
   description: 'Enables verbose logging.'
+}, {
+  name: 'doubleQuotes',
+  type: Boolean,
+  description: 'Enables double quotes around strings in generated output.'
 }];
 
 var usage = commandLineUsage([{
@@ -69,7 +73,9 @@ trace('Parsed AST\n', ast);
 
 var generatedCode = attempt('convert Stylus AST', function () {
   var renamer = new Renamer();
-  var converter = new Converter(trace, renamer, ast);
+  var converter = new Converter(trace, renamer, ast, {
+    useDoubleQuotes: options.doubleQuotes 
+  });
   return converter.convert();
 });
 
