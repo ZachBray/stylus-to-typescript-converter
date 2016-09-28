@@ -160,7 +160,11 @@ Converter.prototype.visitValue = function(value) {
   if (isQuoted) {
     textValue = textValue.substr(1, textValue.length - 2);
   }
-  this.writeQuoted(textValue);
+  if (isNaN(textValue)) {
+    this.writeQuoted(textValue);
+  } else {
+    this.write(textValue);
+  }
 };
 
 Converter.prototype.visitRGBA = Converter.prototype.visitValue;
